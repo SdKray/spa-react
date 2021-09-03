@@ -1,6 +1,7 @@
 
 import { types } from '../types/types';
 import { firebase } from '../firebase/firebase-config';
+import { setError } from './error';
 // import { finishLoading, startLoading } from './ui';
 // import { noteLogout } from './notes';
 
@@ -16,7 +17,8 @@ export const startLoginEmailPassword = (email, password) => {
 			})
 			.catch(e => {
 				// dispatch(finishLoading());
-				// Swal.fire('Error', e.message, 'error');
+				alert(e.message.replace('Firebase:',''));
+                // dispatch(setError(e.message))
 			});
 	};
 };

@@ -10,12 +10,13 @@ import { StartRegisterWithEmailPasswordName } from '../../actions/auth';
 export default function Register() {
 	const dispatch = useDispatch();
 	const { msgError } = useSelector(state => state.error);
+	// dispatch(removeError());
 
 	const [formValues, handleInputChange] = useForm({
-		name: 'hola',
-		email: 'test@hotmail.com',
-		password: '123456',
-		password2: '123456',
+		name: '',
+		email: '',
+		password: '',
+		password2: '',
 	});
 
 	const { name, email, password, password2 } = formValues;

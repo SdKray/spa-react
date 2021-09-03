@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
 import { startLoginEmailPassword } from '../../actions/auth';
 
 export default function Login() {	
     const dispatch = useDispatch();
-	// const { loading } = useSelector(state => state.ui);
+    const { msgError } = useSelector(state => state.error);
 
 	const [formValues, handleInputChange] = useForm({
-		email: 'test@hotmail.com',
-		password: '123456',
+		email: '',
+		password: '',
 	});
 
 	const { email, password } = formValues;
@@ -20,10 +20,11 @@ export default function Login() {
         dispatch(startLoginEmailPassword(email, password));
 	};
 
-	return (
+	return (    
 		<div>
 			<h1>Loing</h1>
 			<form onSubmit={handleLogin}>
+                {msgError && <div>{msgError}</div>}
 				<label htmlFor='email'>email</label>
 				<input
 					type='text'
