@@ -1,24 +1,20 @@
 
 import { types } from '../types/types';
 import { firebase } from '../firebase/firebase-config';
-import { setError } from './error';
-// import { finishLoading, startLoading } from './ui';
-// import { noteLogout } from './notes';
 
 export const startLoginEmailPassword = (email, password) => {
 	return dispatch => {
-		// dispatch(startLoading());
+
 		return firebase
 			.auth()
 			.signInWithEmailAndPassword(email, password)
 			.then(({ user }) => {
 				dispatch(login(user.uid, user.displayName));
-				// dispatch(finishLoading());
+
 			})
 			.catch(e => {
-				// dispatch(finishLoading());
+
 				alert(e.message.replace('Firebase:',''));
-                // dispatch(setError(e.message))
 			});
 	};
 };
@@ -33,7 +29,6 @@ export const StartRegisterWithEmailPasswordName = (email, pwd, name) => {
 				dispatch(login(user.uid, user.displayName));
 			})
 			.catch(e => {
-				// Swal.fire('Error', e.message, 'error');
 			});
 	};
 };
