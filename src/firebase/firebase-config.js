@@ -2,14 +2,15 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
+console.log(import.meta.env)
 const firebaseConfig = {
-	apiKey: process.env.REACT_APP_apiKey,
-	authDomain: process.env.REACT_APP_authDomain,
-	databaseURL: process.env.REACT_APP_databaseURL,
-	projectId: process.env.REACT_APP_projectId,
-	storageBucket: process.env.REACT_APP_storageBucket,
-	messagingSenderId: process.env.REACT_APP_messagingSenderId,
-	appId: process.env.REACT_APP_appId,
+	apiKey: import.meta.env.VITE_APP_apiKey,
+	authDomain: import.meta.env.VITE_APP_authDomain,
+	databaseURL: import.meta.env.VITE_APP_databaseURL,
+	projectId: import.meta.VITE_APP_projectId,
+	storageBucket: import.meta.VITE_APP_storageBucket,
+	messagingSenderId: import.meta.VITE_APP_messagingSenderId,
+	appId: import.meta.VITE_APP_appId,
 };
 
 firebase.initializeApp(firebaseConfig);
